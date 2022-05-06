@@ -1,5 +1,6 @@
 // Assignment code here
-
+var numberOfCharacter = document.getElementById("numberOfCharacters")
+var 
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
