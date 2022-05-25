@@ -13,7 +13,7 @@ var specialSymbols = "!@#$%^&*()[]{]<>?";
 var hasSpecialSymbols = specialSymbols.split("");
 
 var characterLength = "";
-var allOfIt = []
+// var allOfIt = []
 
 
 // This connects the slider and the number selector together and allows the input to be pulled
@@ -33,22 +33,35 @@ function syncSlider(event) {
 
 
 // Get references to the #generate element
- 
+ var generateBtn = document.querySelector("#generate");
 
-function generatePassword(slider, hasSpecialSymbols) { 
+function generatePassword() { 
   console.log("It's here.")
-  var password = "";
-  var randomString = "";
-    if (hasSpecialSymbols) {
-      randomString = 
-      password = password + specialSymbols[Math.floor(Math.random() * specialSymbols.length)];
+  const uppercaseCheck = document.getElementById("uppercase").checked;
+  const numbersCheck = document.getElementById("numbers").checked;
+  const symbolsCheck = document.getElementById("symbols").checked;
+  let allOfIt = []
+  let password = ""
+  
+    if (uppercaseCheck) {
+        allOfIt = [...allOfIt, ...hasUpperCaseLetters]
+        console.log("did it work?", allOfIt)
+      
     }
-    for (var i = 0; i <= slider; i++) {
-    var randomNumber = Math.floor(Math.random() * slider.length);
+    if (numbersCheck) {
+        allOfIt = [...allOfIt, ...hasNumbers]
+        console.log("Still looking", allOfIt)
+    }
+    if (symbolsCheck) {
+        allOfIt = [...allOfIt, ...hasSpecialSymbols]
+        console.log("gibberish")
+    }
+    for (var i = 0; i <= numberRange; i++) {
+    var randomNumber = Math.floor(Math.random() * numberRange.length);
     console.log("random number", randomNumber)
   }
 }
-generatePassword(variables)
+
 
 // Write password to the #password input
 function writePassword() {
@@ -56,7 +69,7 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", generate); 
+generateBtn.addEventListener("click", generatePassword()); 
   
 
 
