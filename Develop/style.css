@@ -69,6 +69,7 @@ header {
 
 .card-footer {
   text-align: center;
+  cursor: pointer;
 }
 
 .card-footer::before {
